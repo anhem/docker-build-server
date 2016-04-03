@@ -4,7 +4,7 @@ A TeamCity Agent docker image to support requirements in [urchin] (https://githu
 
 ## Requirements
 
-a TeamCity server. The agent runtime is downloaded from the TeamCity image when started.
+a TeamCity server. The agent runtime is downloaded from the TeamCity server when started.
 
 ## Build
 
