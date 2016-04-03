@@ -5,7 +5,7 @@ if [ -z "$TEAMCITY_SERVER" ]; then
 fi
 
 while [ 1 ]; do
-    wget http://$TEAMCITY_SERVER/update/buildAgent.zip
+    wget $TEAMCITY_SERVER/update/buildAgent.zip
     if [ $? = 0 ];
         then break;
     fi;
@@ -20,7 +20,7 @@ done;
 AGENT_FOLDER="/opt/buildAgent"
 unzip buildAgent.zip -d $AGENT_FOLDER && rm buildAgent.zip
 
-echo "serverUrl=http://$TEAMCITY_SERVER" >> $AGENT_FOLDER"/conf/buildAgent.properties"
+echo "serverUrl=$TEAMCITY_SERVER" >> $AGENT_FOLDER"/conf/buildAgent.properties"
 
 chmod +x $AGENT_FOLDER/bin/agent.sh
 sh $AGENT_FOLDER/bin/agent.sh run
