@@ -5,7 +5,7 @@ if [ -z "$TEAMCITY_SERVER" ]; then
 fi
 
 while [ 1 ]; do
-    wget http://server:8111/update/buildAgent.zip
+    wget http://$TEAMCITY_SERVER/update/buildAgent.zip
     if [ $? = 0 ];
         then break;
     fi;
