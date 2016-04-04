@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install -y wget unzip ecryptfs-utils mhddfs
+RUN apt-get update && apt-get install -y wget unzip ecryptfs-utils mhddfs npm
 
 # install jdk
 RUN mkdir /usr/local/java
