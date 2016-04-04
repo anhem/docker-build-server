@@ -10,7 +10,7 @@ ENV JAVA_HOME /usr/local/java/jdk1.8.0_77
 
 VOLUME /opt/buildAgent
 
-ADD entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ADD docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 9090
