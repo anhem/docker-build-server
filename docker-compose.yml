@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  tc-postgres:
+    image:
+      tc-postgres:latest
+    build:
+      context:
+        tc-postgres
+    container_name:
+      tc-postgres
+    environment:
+      - POSTGRES_PASSWORD=superSecretKey009
+    volumes:
+      - /data/postgres:/var/lib/postgresql/data
+  teamcity:
+    image:
+      sjoerdmulder/teamcity:latest
+    container_name:
+      teamcity
+    depends_on:
+      - tc-postgres
+    volumes:
+      - /data/teamcity:/var/lib/teamcity
+    links:
+     - tc-postgres:postgres
+  tc-agent-1:
+    image:
+      urchin-tc-agent:latest
+    build:
+      context:
+        tc-agent
+    container_name:
+      tc-agent-1
+    environment:
+      - TEAMCITY_SERVER=http://teamcity:8111
+    depends_on:
+      - teamcity
+    volumes:
+      - /data/buildAgent/1:/opt/buildAgent
+    links:
+      - teamcity:teamcity

@@ -1,22 +1,40 @@
 # urchin-docker-tc-agent
 
-A TeamCity Agent docker image to support requirements in [urchin] (https://github.com/anhem/urchin)
+A docker setup of a build server with Postgres, TeamCity and a TeamCity Agent.
+
+The TeamCity agent is setup with some requirements for integration testing [urchin] (https://github.com/anhem/urchin) such as ecryptfs and mhddfs
+
+Data from all docker containers are persisted in `/data`
 
 ## Requirements
 
-a TeamCity server. The agent runtime is downloaded from the TeamCity server when started.
+Docker-compose
 
 ## Build
 
-Example:
 ```
-docker build -t urchin-tc-agent .
+docker-compose build
 ```
 
 ## Run
 
-Example:
 ```
-docker run -d --name=teamcity-agent-1 --link teamcity:teamcity --privileged -e TEAMCITY_SERVER=http://teamcity:8111 urchin-tc-agent
+docker-compose up -d
 ```
+
+## Setup
+
+run `docker inspect teamcity` to get <teamcity_ip>.
+Goto http://<teamcity_ip>:8111/ and follow the instructions.
+Configure teamcity with postgres and enter `postgres:5432` as ip and `teamcity` as username and password
+
+The TeamCity Agent will most likely timeout during setup with the following:
+```
+Teamcity server did not respond within 120 seconds...
+exited with code 42
+```
+Simply stop the remaining containers with `docker-compose stop` and run `docker-compose up -d` again once setup is complete
+
+Goto http://<teamcity_ip>:8111/agents.html?tab=unauthorizedAgents and authorize agent
+
 
