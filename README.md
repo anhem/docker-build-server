@@ -4,11 +4,11 @@ A docker setup of a build server with Postgres, TeamCity and a TeamCity Agent.
 
 The TeamCity agent is setup with some requirements for integration testing [urchin] (https://github.com/anhem/urchin) such as ecryptfs and mhddfs
 
-Data from all docker containers are persisted with docker data volume in `/data` on host machine
+Data from all docker containers are persisted using [data volume] (https://docs.docker.com/engine/userguide/containers/dockervolumes/#data-volumes) in `/data` on host machine
 
 ## Requirements
 
-Docker-compose
+[Docker Compose] (https://docs.docker.com/compose/)
 
 ## Build
 
