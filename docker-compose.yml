@@ -24,6 +24,8 @@ services:
       - /data/teamcity:/var/lib/teamcity
     links:
      - tc-postgres:postgres
+    ports:
+     - "8111:8111"     
   tc-agent-1:
     image:
       urchin-tc-agent:latest
