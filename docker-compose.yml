@@ -42,3 +42,5 @@ services:
       - /data/buildAgent/1:/opt/buildAgent
     links:
       - teamcity:teamcity
+    privileged:
+      true
