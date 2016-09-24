@@ -10,8 +10,8 @@ while [ 1 ]; do
         then break;
     fi;
     let waiting+=3
-    if [ $waiting -eq 120 ]; then
-        echo "Teamcity server did not respond within 120 seconds"...
+    if [ $waiting -eq 300 ]; then
+        echo "Teamcity server did not respond within 5 minutes"...
         exit 42
     fi;
     sleep 3s;
