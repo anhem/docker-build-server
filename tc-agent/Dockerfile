@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 
 # install jdk
 RUN mkdir /usr/local/java
-RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -P /usr/local/java http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
-RUN tar xvzf /usr/local/java/jdk-8u161-linux-x64.tar.gz -C /usr/local/java && rm /usr/local/java/jdk-8u161-linux-x64.tar.gz
-ENV JAVA_HOME /usr/local/java/jdk1.8.0_161
+RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -P /usr/local/java http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
+RUN tar xvzf /usr/local/java/jdk-10.0.1_linux-x64_bin.tar.gz -C /usr/local/java && rm /usr/local/javajdk-10.0.1_linux-x64_bin.tar.gz
+ENV JAVA_HOME /usr/local/java/jdk-10.0.1
 
 VOLUME /opt/buildAgent
 
