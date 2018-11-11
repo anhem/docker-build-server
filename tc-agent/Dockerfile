@@ -1,17 +1,18 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # install dependencies
 RUN apt-get update && \
-    apt-get install -y wget unzip openjdk-8-jdk ecryptfs-utils mhddfs npm samba samba-common-bin whois && \
-    apt-get clean
+    apt-get install -y sudo wget unzip openjdk-11-jdk git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
 
 # install chrome
 RUN wget https://dl.google.com/linux/linux_signing_key.pub
 RUN apt-key add linux_signing_key.pub
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
-RUN apt-get update && apt-get install -y google-chrome-stable
+RUN apt-get update && \
+    apt-get install -y google-chrome-stable && \
+    apt-get clean
 
 VOLUME /opt/buildAgent
 
