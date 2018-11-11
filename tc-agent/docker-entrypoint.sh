@@ -4,7 +4,7 @@ if [ -z "$TEAMCITY_SERVER" ]; then
     exit 1
 fi
 
-service samba start
+service smbd start
 
 while [ 1 ]; do
     wget $TEAMCITY_SERVER/update/buildAgent.zip
