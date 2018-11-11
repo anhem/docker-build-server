@@ -17,7 +17,7 @@ services:
       always
   teamcity:
     image:
-      sjoerdmulder/teamcity:latest
+      jetbrains/teamcity-server:latest
     container_name:
       teamcity
     depends_on:
