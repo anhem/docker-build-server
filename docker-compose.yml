@@ -23,7 +23,8 @@ services:
     depends_on:
       - tc-postgres
     volumes:
-      - /data/teamcity:/var/lib/teamcity
+      - /data/teamcity:/data/teamcity_server/datadir
+      - /log/teamcity:/opt/teamcity/logs
     links:
      - tc-postgres:postgres
     ports:
