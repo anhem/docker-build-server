@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # install dependencies
 RUN apt-get update && \
-    apt-get install -y sudo wget unzip openjdk-11-jdk git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
+    apt-get install -y sudo wget unzip openjdk-8-jdk git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
 
 # install chrome
 RUN wget https://dl.google.com/linux/linux_signing_key.pub
@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get install -y google-chrome-stable && \
     apt-get clean
 
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
 VOLUME /opt/buildAgent
 
