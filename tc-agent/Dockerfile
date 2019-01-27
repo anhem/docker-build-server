@@ -6,6 +6,14 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y sudo wget unzip openjdk-8-jdk git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
 
+# install openJDK 11
+RUN wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+RUN tar -xvf openjdk-11.0.2_linux-x64_bin.tar.gz
+RUN mkdir -p /usr/lib/jvm/jdk-11-manual/
+RUN mv jdk-11*/* /usr/lib/jvm/jdk-11-manual/
+RUN sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11-manual/bin/java 1
+RUN sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-11-manual/bin/javac 1
+
 # install chrome
 RUN wget https://dl.google.com/linux/linux_signing_key.pub
 RUN apt-key add linux_signing_key.pub
