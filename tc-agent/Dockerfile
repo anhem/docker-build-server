@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # install dependencies
 RUN apt-get update && \
-    apt-get install -y sudo wget unzip openjdk-8-jdk git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
+    apt-get install -y sudo wget unzip git maven ecryptfs-utils mhddfs samba samba-common-bin whois acl
 
 # install openJDK 11
 RUN wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
