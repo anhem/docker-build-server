@@ -22,7 +22,7 @@ RUN apt-get update && \
     apt-get install -y google-chrome-stable && \
     apt-get clean
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+ENV JAVA_HOME /usr/lib/jvm/jdk-11-manual/
 
 VOLUME /opt/buildAgent
 
